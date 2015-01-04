@@ -1,0 +1,4 @@
+services:
+#    zz_validation_extra.example:
+#        class: Zz\ValidationExtraBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
