@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Constraint;
  */
 class Color extends Constraint
 {
-	public $message = 'The color supplied (%color%) is invalid.';
+	public $message = 'The color supplied (%color%) is invalid (for types: %types%).';
 	public $types = 'All';
 	
 	public $requireHash; // For 'hex' type

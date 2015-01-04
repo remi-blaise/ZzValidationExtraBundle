@@ -19,6 +19,12 @@ class ColorTest extends WebTestCase
 		$constraint->types = 'HtmlName';
 		$this->validateValue('aqua', $constraint);
 		$this->validateValue('#e5ee', $constraint, true);
+		
+		$constraint->types = ['csSnaME', 'HtmlName'];
+		$this->validateValue('aqua', $constraint);
+		$this->validateValue('gold', $constraint);
+		$this->validateValue('#e5ee', $constraint, true);
+		$this->validateValue(5, $constraint, true);
     }
 	
     public function testHexColor ()
@@ -41,6 +47,13 @@ class ColorTest extends WebTestCase
 		$constraint = new Constraints\HtmlNameColor ();
 		$this->validateValue('aqua', $constraint);
 		$this->validateValue('gold', $constraint, true);
+    }
+	
+    public function testCssNameColor ()
+    {
+		$constraint = new Constraints\CssNameColor ();
+		$this->validateValue('gold', $constraint);
+		$this->validateValue('aqua', $constraint, true);
     }
 	
 	protected function validateValue ( $value, Constraints\Color $constraint, $not = false ) {
