@@ -10,9 +10,18 @@ class ColorValidator extends ConstraintValidator
 {
 	use ValidateCheckingIsValidMethod;
 	
+	// Todo foreach
+	protected $allTypes = [
+		'hex'
+	];
+	
 	public function isValid ( $value, Constraint $constraint ) {
 		if ( is_string($constraint->types) ) {
-			$constraint->types = [$constraint->types];
+			if ( $constraint->types = 'all' ) {
+				$constraint->types = $this->allTypes;
+			} else {
+				$constraint->types = [$constraint->types];
+			}
 		}
 		if ( !is_array($constraint->types) ) {
 			throw new \InvalidArgumentException ('The \'types\' arguments of Color constraint must be a string or an array of strings.');
@@ -22,11 +31,12 @@ class ColorValidator extends ConstraintValidator
 			if ( !is_string($type) ) {
 				throw new \InvalidArgumentException ('The \'types\' arguments of Color constraint must be a string or an array of strings.');
 			}
-			if ( !class_exists($class = ucfirst(strtolower($type)) . 'Color') && is_subclass_of($class, 'Color') ) {
+			if ( !class_exists($class = ucfirst(strtolower($type)) . 'ColorValidator') && is_subclass_of($class, 'Color') ) {
 				throw new \InvalidArgumentException ('The \'type\' ' . $type . ' is not a XXXColor constraint.');
 			}
-			
-			if ( call_user_func($class . 'Validator::isValid', $value, $constraint) ) {
+			$class = 'Zz\ValidationExtraBundle\Validator\Constraints\\' . $class;
+			$validator = new $class;
+			if ( call_user_func([$validator, 'isValid'], $value, $constraint) ) {
 				return true;
 			}
 		}
