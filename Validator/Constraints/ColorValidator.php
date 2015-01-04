@@ -10,15 +10,18 @@ class ColorValidator extends ConstraintValidator
 {
 	use ValidateCheckingIsValidMethod;
 	
-	// Todo foreach
-	protected $allTypes = [
-		'hex'
-	];
-	
 	public function isValid ( $value, Constraint $constraint ) {
 		if ( is_string($constraint->types) ) {
 			if ( $constraint->types = 'all' ) {
-				$constraint->types = $this->allTypes;
+				$allTypes = [];
+				foreach ( new \DirectoryIterator(dirname(__FILE__)) as $file ) {
+					if ( $file->isFile () ) {
+						if ( preg_match('#(\w+)Color\.php#', $file->getFilename(), $matches) ) {
+							$allTypes[] = $matches[1];
+						}
+					}
+				}
+				$constraint->types = $allTypes;
 			} else {
 				$constraint->types = [$constraint->types];
 			}
