@@ -15,6 +15,10 @@ class ColorTest extends WebTestCase
 		$constraint->types = 'hex';
 		$this->validateValue('#eee', $constraint);
 		$this->validateValue('#e5ee', $constraint, true);
+		
+		$constraint->types = 'HtmlName';
+		$this->validateValue('aqua', $constraint);
+		$this->validateValue('#e5ee', $constraint, true);
     }
 	
     public function testHexColor ()
@@ -30,6 +34,13 @@ class ColorTest extends WebTestCase
 		$constraint->requireHash = null;
 		$this->validateValue('eee000', $constraint);
 		$this->validateValue('#000', $constraint);
+    }
+	
+    public function testHtmlNameColor ()
+    {
+		$constraint = new Constraints\HtmlNameColor ();
+		$this->validateValue('aqua', $constraint);
+		$this->validateValue('gold', $constraint, true);
     }
 	
 	protected function validateValue ( $value, Constraints\Color $constraint, $not = false ) {

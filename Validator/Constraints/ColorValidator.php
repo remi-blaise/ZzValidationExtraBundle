@@ -12,7 +12,7 @@ class ColorValidator extends ConstraintValidator
 	
 	public function isValid ( $value, Constraint $constraint ) {
 		if ( is_string($constraint->types) ) {
-			if ( $constraint->types = 'all' ) {
+			if ( strtolower($constraint->types) === 'all' ) {
 				$allTypes = [];
 				foreach ( new \DirectoryIterator(dirname(__FILE__)) as $file ) {
 					if ( $file->isFile () ) {
