@@ -30,6 +30,6 @@ class ColorValidator extends ConstraintValidator
 				return true;
 			}
 		}
-		return false
+		return false;
 	}
 }

@@ -2,6 +2,8 @@
 
 namespace Zz\ValidationExtraBundle\Validator;
 
+use Symfony\Component\Validator\Constraint;
+
 trait ValidateCheckingIsValidMethod {
 	public function validate ( $value, Constraint $constraint )
 	{
