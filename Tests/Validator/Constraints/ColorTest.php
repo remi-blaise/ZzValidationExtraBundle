@@ -2,10 +2,10 @@
 
 namespace Zz\ValidationExtraBundle\Tests\Validator\Constraints;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase,
+use Symfony\Component\Validator\Validation,
 	Zz\ValidationExtraBundle\Validator\Constraints;
 
-class ColorTest extends WebTestCase
+class ColorTest extends \PHPUnit_Framework_TestCase
 {
     public function testColor ()
     {
@@ -56,10 +56,37 @@ class ColorTest extends WebTestCase
 		$this->validateValue('aqua', $constraint, true);
     }
 	
+	public function testAnnotations ()
+	{
+		$this->validate( new TestAnnotations );
+	}
+	
+	protected function validate ( $object, $not = false ) {
+        $validator = Validation::createValidatorBuilder()
+						->enableAnnotationMapping()
+						->getValidator();
+		$errors = $validator->validate($object);
+        $message = 'The object supplied should be ' . ($not ? 'invalid' : 'valid') . '.' . ($not ? '' : " Errors :\n");
+		foreach ( $errors as $error ) {
+			$message .= $error;
+		}
+		
+		if ( !$not ) {
+			$this->assertEmpty( $errors, $message );
+		} else {
+			$this->assertNotEmpty( $errors, $message );
+		}
+	}
+	
 	protected function validateValue ( $value, Constraints\Color $constraint, $not = false ) {
-        $client = static::createClient();
-		$container = $client->getContainer();
-		$errors = $container->get('validator')->validateValue($value, $constraint);
-        $this->assertCount( ($not ? 1 : 0), $errors, 'The color supplied (' . $value . ') should be ' . ($not ? 'invalid' : 'valid') . '.' );
+        $validator = Validation::createValidator();
+		$errors = $validator->validateValue($value, $constraint);
+		$message = 'The color supplied (' . $value . ') should be ' . ($not ? 'invalid' : 'valid') . '.';
+		
+		if ( !$not ) {
+			$this->assertEmpty( $errors, $message );
+		} else {
+			$this->assertNotEmpty( $errors, $message );
+		}
 	}
 }
