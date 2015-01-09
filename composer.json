@@ -1,0 +1,25 @@
+{
+    "name": "Zz/ValidationExtraBundle",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rémi Blaise",
+            "email": "remi.blaise@gmx.fr",
+            "homepage": "http://zzortell.perso.sfr.fr"
+        }
+    ],
+    
+	"require": {
+        "php": ">=5.3.2",
+        "symfony/validator": "~2.5"
+    },
+	
+	"require-dev": {
+        "doctrine/common": "~2.3"
+    },
+	
+    "autoload": {
+        "psr-4": {"Zz\\ValidationExtraBundle\\": ""}
+    }
+}
