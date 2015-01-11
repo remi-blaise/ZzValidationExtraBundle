@@ -108,8 +108,8 @@ Credits
 -------
 
 This bundle his inspired by the ollietb's [`HexColor` constraint](https://github.com/ollieLtd/OhColorPickerTypeBundle/blob/master/Validator/Constraints/HexColor.php) and [his validator](https://github.com/ollieLtd/OhColorPickerTypeBundle/blob/master/Validator/Constraints/HexColorValidator.php).
-* Rémi Blaise @Zzortell as the author.
-* Ollie Harridge @ollietb for original `HexColor` constraint.
+* Rémi Blaise (Zzortell)[https://github.com/Zzortell] as the author.
+* Ollie Harridge (ollietb)[https://github.com/ollietb] for original `HexColor` constraint.
 
 License
 -------
