@@ -15,12 +15,12 @@ class TestAnnotations
 	/**
 	 * @Extras\Color 
 	 */
-	private $b = '222a6e';
+	private $b = '#222a6e';
 	
 	/**
 	 * @Extras\Color("hex")
 	 */
-	private $c = '222a6e';
+	private $c = '#222a6e';
 	
 	/**
 	 * @Extras\Color({"hex", "cssname"}, requireHash=false)
@@ -30,5 +30,5 @@ class TestAnnotations
 	/**
 	 * @Extras\Color(types="hex", message="error")
 	 */
-	private $e = '222a6e';
+	private $e = '#222a6e';
 }
