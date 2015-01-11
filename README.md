@@ -70,12 +70,13 @@ class MyClass
 ```
 
 Properties:
-- `types`: can be a string or an array of strings. Values: `"All"` (string only), `"Hex"`, `"HtmlName"`, `CssName""`.
+- `types`: can be a string or an array of strings. Values: `"All"` (string only), `"Hex"`, `"Name"` (`"HtmlName"`+`CssName""`), `"HtmlName"`, `CssName""`.
 - `message`: Available variables: `%color%`, `%types%`.
 - `requireHash`: for `hex` colors. Values: `null` (doesn't worry) or boolean. 
 
 You can also use the following constraints, heriting of `Color`:
 - `HexColor`
+- `NameColor`
 - `CssNameColor`
 - `HtmlNameColor`
 
@@ -91,7 +92,7 @@ Todo
 ----
 
 In the `1.0` branch:
-- Add the support of name (html+css names), rgb, rgba, hsl, hsla types
+- Add the support of rgb, rgba, hsl, hsla types
 - Add a webSafe property.
 
 In the `1.1` branch:

@@ -16,7 +16,7 @@ class ColorValidator extends ConstraintValidator
 				$allTypes = [];
 				foreach ( new \DirectoryIterator(dirname(__FILE__)) as $file ) {
 					if ( $file->isFile () ) {
-						if ( preg_match('#(\w+)Color\.php#', $file->getFilename(), $matches) ) {
+						if ( preg_match('#(\w+)ColorValidator\.php#', $file->getFilename(), $matches) ) {
 							$allTypes[] = $matches[1];
 						}
 					}

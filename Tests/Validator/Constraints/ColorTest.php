@@ -56,6 +56,14 @@ class ColorTest extends \PHPUnit_Framework_TestCase
 		$this->validateValue('aqua', $constraint, true);
     }
 	
+    public function testNameColor ()
+    {
+		$constraint = new Constraints\NameColor ();
+		$this->validateValue('gold', $constraint);
+		$this->validateValue('aqua', $constraint);
+		$this->validateValue('#000', $constraint, true);
+    }
+	
 	public function testAnnotations ()
 	{
 		$this->validate( new TestAnnotations );
