@@ -1,6 +1,9 @@
 {
-    "name": "Zz/ValidationExtraBundle",
+    "name": "zzortell/zz-validation-extra-bundle",
     "type": "symfony-bundle",
+	"description": "Provides a set of extras validation constraints.",
+	"keywords": ["validation", "constraints", "symfony-bundle"],
+    "homepage": "https://github.com/Zzortell/ZzValidationExtraBundle",
     "license": "MIT",
     "authors": [
         {
