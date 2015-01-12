@@ -27,6 +27,15 @@ class ColorTest extends \PHPUnit_Framework_TestCase
 		$this->validateValue(5, $constraint, true);
     }
 	
+	public function testViciousCases ()
+	{
+		$constraint = new Constraints\Color (true);
+		$this->validateException($constraint);
+		
+		$constraint->formats = ['e'];
+		$this->validateException($constraint);
+	}
+	
     public function testHexColor ()
     {
 		$constraint = new Constraints\HexColor ();
@@ -69,6 +78,8 @@ class ColorTest extends \PHPUnit_Framework_TestCase
 		$this->validate( new TestAnnotations );
 	}
 	
+	
+	
 	protected function validate ( $object, $not = false ) {
         $validator = Validation::createValidatorBuilder()
 						->enableAnnotationMapping()
@@ -95,6 +106,19 @@ class ColorTest extends \PHPUnit_Framework_TestCase
 			$this->assertEmpty( $errors, $message );
 		} else {
 			$this->assertNotEmpty( $errors, $message );
+		}
+	}
+	
+	protected function validateException ( Constraints\Color $constraint, $class = '\InvalidArgumentException' ) {
+		$excep = false;
+		try {
+			$this->validateValue('#eee', $constraint);
+		} catch ( \Exception $e ) {
+			$this->assertInstanceOf($class, $e);
+			$excep = true;
+		}
+		if ( !$excep ) {
+			$this->assertTrue(false, 'The validation of the constraint didn\'t throw any exception.');
 		}
 	}
 }
