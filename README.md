@@ -11,7 +11,7 @@ Installation
 Add the bundle by running:
 
 ``` bash
-$ composer require zzortell/zz-validation-extra-bundle
+composer require zzortell/zz-validation-extra-bundle
 ```
 
 **Step 2: Enable the bundle**
