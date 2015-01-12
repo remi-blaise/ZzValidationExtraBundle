@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Constraint;
  */
 class NameColor extends Color
 {
-	public $types = [ 'CssName', 'HtmlName' ];
+	public $formats = [ 'CssName', 'HtmlName' ];
 	
 	public function validatedBy () {
 		return '\Zz\ValidationExtraBundle\Validator\Constraints\ColorValidator';

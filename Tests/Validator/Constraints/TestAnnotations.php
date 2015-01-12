@@ -28,7 +28,7 @@ class TestAnnotations
 	private $d = '222a6e';
 	
 	/**
-	 * @Extras\Color(types="hex", message="error")
+	 * @Extras\Color(formats="hex", message="error")
 	 */
 	private $e = '#222a6e';
 }

@@ -12,15 +12,15 @@ class ColorTest extends \PHPUnit_Framework_TestCase
 		$constraint = new Constraints\Color ();
 		$this->validateValue('#eee', $constraint);
 		
-		$constraint->types = 'hex';
+		$constraint->formats = 'hex';
 		$this->validateValue('#eee', $constraint);
 		$this->validateValue('#e5ee', $constraint, true);
 		
-		$constraint->types = 'HtmlName';
+		$constraint->formats = 'HtmlName';
 		$this->validateValue('aqua', $constraint);
 		$this->validateValue('#e5ee', $constraint, true);
 		
-		$constraint->types = ['csSnaME', 'HtmlName'];
+		$constraint->formats = ['csSnaME', 'HtmlName'];
 		$this->validateValue('aqua', $constraint);
 		$this->validateValue('gold', $constraint);
 		$this->validateValue('#e5ee', $constraint, true);

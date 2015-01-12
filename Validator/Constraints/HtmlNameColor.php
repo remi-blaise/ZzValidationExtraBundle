@@ -9,5 +9,5 @@ use Symfony\Component\Validator\Constraint;
  */
 class HtmlNameColor extends Color
 {
-	public $types = 'HtmlName';
+	public $formats = 'HtmlName';
 }

@@ -57,21 +57,21 @@ class MyClass
 	
 	/**
 	 * All options with theirs default values:
-	 * @Extras\Color(types="All", message="The color supplied (%color%) is invalid (for types: %types%).", requireHash=true)
+	 * @Extras\Color(formats="All", message="The color supplied (%color%) is invalid (for formats: %formats%).", requireHash=true)
 	 */
 	protected $color = '#222a6e';
 	
 	/**
 	 * Complex usage:
-	 * @Extras\Color(types={"hex", "cssname"}, requireHash=false)
+	 * @Extras\Color(formats={"hex", "cssname"}, requireHash=false)
 	 */
 	protected $color = '#222a6e';
 }
 ```
 
 Properties:
-- `types`: can be a string or an array of strings. Values: `"All"` (string only), `"Hex"`, `"Name"` (`"HtmlName"`+`CssName""`), `"HtmlName"`, `CssName""`.
-- `message`: Available variables: `%color%`, `%types%`.
+- `formats`: can be a string or an array of strings. Values: `"All"` (string only), `"Hex"`, `"Name"` (`"HtmlName"`+`CssName""`), `"HtmlName"`, `CssName""`.
+- `message`: Available variables: `%color%`, `%formats%`.
 - `requireHash`: for `hex` colors. Values: `null` (doesn't worry) or boolean. 
 
 You can also use the following constraints, heriting of `Color`:
@@ -92,11 +92,11 @@ Todo
 ----
 
 In the `1.0` branch:
-- Add the support of rgb, rgba, hsl, hsla types
+- Add the support of rgb, rgba, hsl, hsla formats
 - Add a webSafe property.
 
 In the `1.1` branch:
-- Add a color type convertor ?
+- Add a color format convertor ?
 
 Contributing
 ------------

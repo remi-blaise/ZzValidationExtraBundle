@@ -9,8 +9,8 @@ use Symfony\Component\Validator\Constraint;
  */
 class Color extends Constraint
 {
-	public $message = 'The color supplied (%color%) is invalid (for types: %types%).';
-	public $types = 'All';
+	public $message = 'The color supplied (%color%) is invalid (for formats: %formats%).';
+	public $formats = 'All';
 	
 	/**
 	 * Takes one of these values:
@@ -23,6 +23,6 @@ class Color extends Constraint
 	
 	public function getDefaultOption ()
     {
-		return 'types';
+		return 'formats';
     }
 }

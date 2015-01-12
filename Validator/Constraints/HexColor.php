@@ -9,5 +9,5 @@ use Symfony\Component\Validator\Constraint;
  */
 class HexColor extends Color
 {
-	public $types = 'Hex';
+	public $formats = 'Hex';
 }
