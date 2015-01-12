@@ -2,12 +2,10 @@
 
 namespace Zz\ValidationExtraBundle\Validator\Constraints;
 
-use Symfony\Component\Validator\Constraint;
-
 /**
  * @Annotation
  */
-class NameColor extends Color
+class NameColor extends AbstractChildColor
 {
 	public $formats = [ 'CssName', 'HtmlName' ];
 	

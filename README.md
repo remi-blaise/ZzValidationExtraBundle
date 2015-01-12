@@ -63,22 +63,24 @@ class MyClass
 	
 	/**
 	 * Complex usage:
-	 * @Extras\Color(formats={"hex", "cssname"}, requireHash=false)
+	 * @Extras\Color({"hex", "cssname"}, requireHash=false)
 	 */
 	protected $color = '#222a6e';
 }
 ```
 
 Properties:
-- `formats`: can be a string or an array of strings. Values: `"All"` (string only), `"Hex"`, `"Name"` (`"HtmlName"`+`CssName""`), `"HtmlName"`, `CssName""`.
+- `formats`: is the default option. It can be a string or an array of strings. Values: `"All"` (string only), `"Hex"`, `"Name"` (`"HtmlName"`+`CssName""`), `"HtmlName"`, `CssName""`.
 - `message`: Available variables: `%color%`, `%formats%`.
-- `requireHash`: for `hex` colors. Values: `null` (doesn't worry) or boolean. 
+- `requireHash`: for `hex` colors. Values: `null` (doesn't worry) or boolean.
 
-You can also use the following constraints, heriting of `Color`:
+You can also use the following constraints, inheriting of `Color`:
 - `HexColor`
 - `NameColor`
 - `CssNameColor`
 - `HtmlNameColor`
+
+For these constraints, `message` is the default option.
 
 Don't hesitate to have a look on [`Validator/Constraints`](https://github.com/Zzortell/ZzValidationExtraBundle/tree/master/Validator/Constraints).
 

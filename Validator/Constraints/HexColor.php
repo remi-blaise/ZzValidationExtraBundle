@@ -2,12 +2,10 @@
 
 namespace Zz\ValidationExtraBundle\Validator\Constraints;
 
-use Symfony\Component\Validator\Constraint;
-
 /**
  * @Annotation
  */
-class HexColor extends Color
+class HexColor extends AbstractChildColor
 {
 	public $formats = 'Hex';
 }
