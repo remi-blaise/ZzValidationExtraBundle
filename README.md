@@ -94,8 +94,9 @@ Todo
 ----
 
 In the `1.0` branch:
+- Use services' tag system instead of keeping in memory the formats in Validator/Constraints/ColorValidator.php
 - Add the support of rgb, rgba, hsl, hsla formats
-- Add a webSafe property.
+- Add a webSafe property
 
 In the `1.1` branch:
 - Add a color format convertor ?
