@@ -2,14 +2,10 @@
 
 namespace Zz\ValidationExtraBundle\Validator\Constraints;
 
-use Symfony\Component\Validator\Constraint,
-	Symfony\Component\Validator\ConstraintValidator,
-	Zz\ValidationExtraBundle\Validator\ValidateCheckingIsValidMethod;
+use Symfony\Component\Validator\Constraint;
 
-class HexColorValidator extends ConstraintValidator
+class HexColorValidator extends ColorValidator
 {
-	use ValidateCheckingIsValidMethod;
-	
 	public function isValid ( $value, Constraint $constraint ) {
 		if ( is_null($constraint->requireHash) ) {
 			$hashReg = '#?';

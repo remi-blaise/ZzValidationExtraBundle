@@ -2,14 +2,10 @@
 
 namespace Zz\ValidationExtraBundle\Validator\Constraints;
 
-use Symfony\Component\Validator\Constraint,
-	Symfony\Component\Validator\ConstraintValidator,
-	Zz\ValidationExtraBundle\Validator\ValidateCheckingIsValidMethod;
+use Symfony\Component\Validator\Constraint;
 
-class HtmlNameColorValidator extends ConstraintValidator
+class HtmlNameColorValidator extends ColorValidator
 {
-	use ValidateCheckingIsValidMethod;
-	
 	protected $colors = [ 'aqua','black','blue','fuchsia','gray','green','lime','maroon','navy','olive','orange','purple','red','silver','teal','white','yellow' ];
 	
 	public function isValid ( $value, Constraint $constraint ) {

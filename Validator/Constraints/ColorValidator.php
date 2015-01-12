@@ -3,12 +3,27 @@
 namespace Zz\ValidationExtraBundle\Validator\Constraints;
 
 use Symfony\Component\Validator\Constraint,
-	Symfony\Component\Validator\ConstraintValidator,
-	Zz\ValidationExtraBundle\Validator\ValidateCheckingIsValidMethod;
+	Symfony\Component\Validator\ConstraintValidator;
 
 class ColorValidator extends ConstraintValidator
 {
-	use ValidateCheckingIsValidMethod;
+	public function validate ( $value, Constraint $constraint )
+	{
+		if ( !$this->isValid($value, $constraint) ) {
+			if ( is_array($constraint->formats) ) {
+				$formats = '';
+				foreach ( $constraint->formats as $format ) {
+					$formats .= $format;
+					if( $format !== $constraint->formats[count($constraint->formats)-1] ) {
+						$formats .= ',';
+					}
+				}
+			} else {
+				$formats = $constraint->formats;
+			}
+			$this->context->addViolation ($constraint->message, ['%color%' => $value, '%formats%' => $formats]);
+		}
+	}
 	
 	public function isValid ( $value, Constraint $constraint ) {
 		if ( is_string($constraint->formats) ) {
